@@ -1,19 +1,24 @@
-import React, { useEffect } from "react";
+import React from 'react';
 import { useSelector } from 'react-redux';
+import Loading from './Loading';
 
 const Joke = () => {
-    // useSelector hook to grab smth from redux store
-    const joke = useSelector((store) => store.jokes) // Global state
-    console.log('global state joke', joke)
-    
-    return <div>
-        <p>{joke.type}</p>
-        <p>{joke.setup}</p>     
-        <p>{joke.delivery}</p>     
-    </div>;
+  const joke = useSelector((store) => store.jokes.joke)
+  const loading = useSelector((store) => store.jokes.loading)
+  console.log('joke', joke)
+
+  if (loading) {
+    return <Loading />
+  }
+  return (
+    joke && joke.id ?
+      <div>
+        <p>JOKE HERE:</p>
+        <p>{joke.setup}</p>
+        <p>{joke.delivery}</p>
+      </div>
+      : <p>No joke yet</p>
+  )
 }
 
 export default Joke;
-
-// useSelect to access global state (redux)
-// or joke as a prop

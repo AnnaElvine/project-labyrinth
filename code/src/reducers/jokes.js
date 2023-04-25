@@ -1,37 +1,45 @@
-import { createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const jokes = createSlice({
-    name: 'jokes',
-    initialState: { // if we don't have an inState,
-    // we don't need it as an empty object to start with
-        // category: '', // later populated with jokes. inState not needed.
-        // joke: {
-        //     vcator: '' to match api. adds the whole joke as object in state
-        joke: {},
-        category: '' // category comes from the input
+  name: 'jokes',
+  initialState: {
+    loading: false,
+    joke: {},
+    category: ''
+  },
+  reducers: {
+    // an action to save the joke to global state
+    setJoke: (store, action) => {
+      store.joke = action.payload
     },
-    reducers: {
-        setJoke:(store, action) => {
-            // store.joke = action.payload // payload comes after api call in thunk
-            // instead of taking action.payload like above we can spread it out
-            // store.joke = [...store.joke, action.payload]
-            store.joke = action.payload
-        };
-        // an action to save the joke to global state
-        // an action to save the category to global state
-        setCategory: (store, action) => {
-            store.category = action.payload
-        }
+    // an action to save the category to global state
+    setCategory: (store, action) => {
+      store.category = action.payload
+    },
+    // an action to save the current loading state to global state
+    setLoading: (state, action) => {
+      state.loading = action.payload
     }
+  }
 });
 
 export default jokes;
 
 // a thunk to handle api call
+// https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit
+// Blacklisting to get nice jokes
 export const getJoke = () => {
-    return (dispatch, getState) => {
-        fetch(`https://v2.jokeapi.dev/joke/${getState().jokes.category}`)
-            .then((response) => response.json())
-            .then((potato) => dispatch(jokes.actions.setJoke(potato))) // here we set the action. can't just set, need dispatch
-    }
+  return (dispatch, getState) => {
+    // set loading to true
+    dispatch(jokes.actions.setLoading(true))
+
+    fetch(`https://v2.jokeapi.dev/joke/${getState().jokes.category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit`)
+      .then((response) => response.json())
+      .then((json) => {
+        // get the data from the api - save it as the joke in global state
+        dispatch(jokes.actions.setJoke(json))
+        // set loading to false
+        dispatch(jokes.actions.setLoading(false))
+      })
+  }
 }

@@ -1,13 +1,15 @@
-import React from "react";
-import JokeInputSearch from './JokeInputSearch';
+import React from 'react';
+import JokeSearch from './JokeSearch';
 import Joke from './Joke';
 
 const StartScreen = () => {
-
-    return <div>Start Start
-        <JokeInputSearch />
-        <Joke />
-    </div>;
+  return (
+    <div>
+      <h1>Welcome to the Joke Jam!</h1>
+      <JokeSearch />
+      <Joke />
+    </div>
+  )
 }
 
 export default StartScreen;
