@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Loading from './Loading';
@@ -11,12 +12,12 @@ const Joke = () => {
     return <Loading />
   }
   return (
-    joke && joke.id ?
-      <div>
+    joke && joke.id
+      ? <div>
         <p>JOKE HERE:</p>
         <p>{joke.setup}</p>
         <p>{joke.delivery}</p>
-      </div>
+        </div>
       : <p>No joke yet</p>
   )
 }
