@@ -3,14 +3,13 @@ import { useSelector } from 'react-redux';
 import { WelcomePage } from './WelcomePage'
 import { GameScreen } from './GameScreen'
 
-const StarterScreen = () => {
+ => {}  const userName = useSelector((store) => store.labyrinth.userName)
 
-  
+  return (  
   <main>
       {userName === '' ? <WelcomePage /> : <GameScreen />}
-    </main>e />
-    </div>
+    </main>
   )
 }
 
-export default StarterScreen;
+export default StarrScreen;
