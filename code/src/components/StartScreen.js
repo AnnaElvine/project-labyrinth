@@ -1,15 +1,16 @@
 import React from 'react';
-import JokeSearch from './JokeSearch';
-import Joke from './Joke';
+import { useSelector } from 'react-redux';
+import { WelcomePage } from './WelcomePage'
+import { GameScreen } from './GameScreen'
 
-const StartScreen = () => {
-  return (
-    <div>
-      <h1>Welcome to the Joke Jam!</h1>
-      <JokeSearch />
-      <Joke />
+const StarterScreen = () => {
+
+  
+  <main>
+      {userName === '' ? <WelcomePage /> : <GameScreen />}
+    </main>e />
     </div>
   )
 }
 
-export default StartScreen;
+export default StarterScreen;
