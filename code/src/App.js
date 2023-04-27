@@ -7,7 +7,7 @@ import loading from 'reducers/loading';
 import game from './reducers/game';
 
 export const App = () => {
-  const reducer = combineReducers({ game: game.reducer, loading: loading.reducer})
+  const reducer = combineReducers({ game: game.reducer, loading: loading.reducer })
   const store = configureStore({ reducer });
 
   return (

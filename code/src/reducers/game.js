@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import Loading from './components/Loading.js';
+import loading from './components/Loading.js';
 
 const initialState = {
   username: '',
@@ -28,7 +28,7 @@ const game = createSlice({
       state.loading = action.payload
     },
     setActionOption: (state, action) => {
-    state.actions = action.payload
+      state.actions = action.payload
     }
   }
 });
@@ -63,7 +63,7 @@ export const startGame = () => {
         dispatch(game.actions.setDescription(json.description))
         dispatch(game.actions.setDirection(json.direction))
         dispatch(game.actions.setAction(json.action))
-        dispatch(game.actions.setLoading(false)))
+        dispatch(game.actions.setLoading(false))
       })
   }
 }
@@ -82,13 +82,13 @@ export const actionsGame = (type, direction) => {
       })
     }
     fetch('https://labyrinth.technigo.io/action', options)
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json)
         dispatch(game.actions.setDescription(json.description))
         dispatch(game.actions.setDirection(json.direction))
         dispatch(game.actions.setAction(json.action))
-        dispatch(game.actions.setLoading(false)))
-    })
+        dispatch(game.actions.setLoading(false))
+      })
   }
 }
