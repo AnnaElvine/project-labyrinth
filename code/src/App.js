@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { StartScreen } from 'components/StartScreen';
-import { GameScreen } from 'components/GameScreen';
+import StartScreen from 'components/StartScreen';
+import GameScreen from 'components/GameScreen';
 import loading from 'reducers/loading';
 import game from './reducers/game';
 

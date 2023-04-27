@@ -3,7 +3,8 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { Dispatch } from 'react-redux';
-import labyrinth, { startGame } from './reducers/game.js';
+import game from 'reducers/game.js';
+/* import labyrinth, { startGame } from './reducers/game.js'; */
 // import { useSelector } from 'react-redux';
 /* import WelcomePage from './WelcomePage' */
 /* import GameScreen from './GameScreen' */
