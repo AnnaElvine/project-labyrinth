@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { WelcomePage } from './WelcomePage'
-import { GameScreen } from './GameScreen'
+import WelcomePage from './WelcomePage'
+import GameScreen from './GameScreen'
 
 const StartScreen = () => {
   const userName = useSelector((store) => store.labyrinth.userName)
