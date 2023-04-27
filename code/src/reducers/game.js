@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import loading from './components/Loading.js';
+/* import loading from './components/Loading.js'; */
 
 const initialState = {
   username: '',

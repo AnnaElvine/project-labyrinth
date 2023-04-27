@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 
 const Loading = () => (
@@ -9,4 +9,4 @@ const Loading = () => (
     style={{ height: '300px', width: '300px' }} />
 )
 
-export default Loading;
+export default Loading; */
